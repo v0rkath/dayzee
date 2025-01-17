@@ -26,8 +26,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dayz.io",
-  description: "The Open Source Source DayZ data tool.",
+  title: "DayZee.io",
+  description: "The Open Source DayZ data tool.",
 };
 
 export default function RootLayout({

@@ -1,5 +1,3 @@
-
-
 export type Gun = {
   name: string;
   ammoType: string;
@@ -27,6 +25,7 @@ export const gunData: Gun[] = [
     type: "Assault Rifle",
     western: true,
     size: [8, 3],
+    image: "/images/FAL.png",
   },
   {
     name: "AUR A1",
@@ -36,7 +35,7 @@ export const gunData: Gun[] = [
     type: "Assault Rifle",
     western: true,
     size: [6, 3],
-    image: "../assets/AUR-A1.png",
+    image: "/images/AUR-A1.png",
   },
   {
     name: "AUR AX",
@@ -46,6 +45,7 @@ export const gunData: Gun[] = [
     type: "Assault Rifle",
     western: true,
     size: [8, 3],
+    image: "/images/AUR-AX.png",
   },
   {
     name: "KA-101",
@@ -55,6 +55,7 @@ export const gunData: Gun[] = [
     type: "Assault Rifle",
     western: false,
     size: [8, 3],
+    image: "/images/KA-101.png",
   },
   {
     name: "KA-74",
@@ -64,6 +65,7 @@ export const gunData: Gun[] = [
     type: "Assault Rifle",
     western: false,
     size: [8, 3],
+    image: "/images/KA-74.png",
   },
   {
     name: "KAS-74U",
@@ -73,6 +75,7 @@ export const gunData: Gun[] = [
     type: "Assault Rifle",
     western: false,
     size: [6, 3],
+    image: "/images/KAS-74U.png",
   },
   {
     name: "KA-M",
@@ -82,6 +85,7 @@ export const gunData: Gun[] = [
     type: "Assault Rifle",
     western: false,
     size: [8, 3],
+    image: "/images/KA-M.png",
   },
   {
     name: "LE-MAS",
@@ -91,6 +95,7 @@ export const gunData: Gun[] = [
     type: "Assault Rifle",
     western: true,
     size: [6, 3],
+    image: "/images/LE-MAS.png",
   },
   {
     name: "M16-A2",
@@ -100,6 +105,7 @@ export const gunData: Gun[] = [
     type: "Assault Rifle",
     western: true,
     size: [9, 3],
+    image: "/images/M16-A2.png",
   },
   {
     name: "M4-A1",
@@ -109,6 +115,7 @@ export const gunData: Gun[] = [
     type: "Assault Rifle",
     western: true,
     size: [8, 3],
+    image: "/images/M4-A1.png",
   },
   {
     name: "SVAL",
@@ -118,6 +125,7 @@ export const gunData: Gun[] = [
     type: "Assault Rifle",
     western: false,
     size: [8, 3],
+    image: "/images/SVAL.png",
   },
   {
     name: "Vikhr",
@@ -127,5 +135,6 @@ export const gunData: Gun[] = [
     type: "Assault Rifle",
     western: false,
     size: [6, 3],
+    image: "/images/Vikhr.png",
   },
 ];

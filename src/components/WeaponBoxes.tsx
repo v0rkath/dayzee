@@ -3,7 +3,7 @@ type WeaponBoxesProps = {
 };
 
 export default function WeaponBoxes({ boxes }: WeaponBoxesProps) {
-  const width = boxes[0];
+  const width = boxes[0] + 1;
   const height = boxes[1];
 
   function generateBoxes() {
