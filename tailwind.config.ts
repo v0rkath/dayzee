@@ -8,9 +8,17 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        evanstontavern: ["EasternTavern-1893"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        "dark-blue": "#0C1013",
+        "dark-blue-sec": "#12171D",
+        "dark-blue-third": "#181D23",
+        "dark-sub": "#343F45",
+        "dark-border": "#222A30",
       },
     },
   },

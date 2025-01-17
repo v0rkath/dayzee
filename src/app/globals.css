@@ -9,7 +9,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0c1013;
     --foreground: #ededed;
   }
 }
@@ -17,5 +17,15 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--evanston-tavern), sans-serif;
+}
+
+.plus {
+  --b: 1px; /* the thickness*/
+  --c: #0000 90deg, #222a30 0; /* the coloration */
+  width: 20px; /* the size */
+  aspect-ratio: 1;
+  background: conic-gradient(from 90deg at var(--b) var(--b), var(--c))
+    calc(100% + var(--b) / 2) calc(100% + var(--b) / 2) / calc(50% + var(--b))
+    calc(50% + var(--b));
 }
