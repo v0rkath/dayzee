@@ -1,8 +1,8 @@
 export default function asciiToBinary(input: string): string {
-  const binary: string = "";
-  for (let i = 0; i < input.length; i++) {
-    input += input[i].charCodeAt(0).toString(2) + " ";
-  }
+  const inputArr = input.split("");
+  const output = inputArr
+    .map((char) => char.charCodeAt(0).toString(2).padStart(8, "0"))
+    .join(" ");
 
-  return binary;
+  return output;
 }

@@ -6,7 +6,14 @@ export type Gun = {
   type: string;
   western: boolean;
   size: number[];
-  image?: string;
+  image: string;
+  damage?: {
+    normal: number;
+    plateCarrier: number;
+    ballisticVest: number;
+    policeVest: number;
+    chestplate: number;
+  };
 };
 
 // name: "",
@@ -26,6 +33,13 @@ export const gunData: Gun[] = [
     western: true,
     size: [8, 3],
     image: "/images/FAL.png",
+    damage: {
+      normal: 122.87,
+      plateCarrier: 36.86,
+      ballisticVest: 61.44,
+      policeVest: 61.44,
+      chestplate: 67.58,
+    },
   },
   {
     name: "AUR A1",
@@ -36,6 +50,13 @@ export const gunData: Gun[] = [
     western: true,
     size: [6, 3],
     image: "/images/AUR-A1.png",
+    damage: {
+      normal: 91.35,
+      plateCarrier: 27.41,
+      ballisticVest: 45.68,
+      policeVest: 45.68,
+      chestplate: 50.24,
+    },
   },
   {
     name: "AUR AX",
@@ -46,6 +67,13 @@ export const gunData: Gun[] = [
     western: true,
     size: [8, 3],
     image: "/images/AUR-AX.png",
+    damage: {
+      normal: 107.47,
+      plateCarrier: 32.24,
+      ballisticVest: 53.73,
+      policeVest: 53.73,
+      chestplate: 59.11,
+    },
   },
   {
     name: "KA-101",
