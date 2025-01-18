@@ -24,7 +24,7 @@ export default function WeaponBoxes({ boxes }: WeaponBoxesProps) {
   const boxElements = generateBoxes();
 
   return (
-    <div className={`grid grid-rows-3 grid-flow-col gap-10 mt-4 z-10`}>
+    <div className={`grid grid-rows-3 grid-flow-col gap-10 mt-4`}>
       {boxElements}
     </div>
   );

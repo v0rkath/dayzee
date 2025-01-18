@@ -19,6 +19,7 @@ export default {
         "dark-blue-third": "#181D23",
         "dark-sub": "#343F45",
         "dark-border": "#222A30",
+        "darkest": "#0a0d11",
       },
     },
   },

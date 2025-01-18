@@ -10,26 +10,24 @@ type WeaponPageProps = {
 
 export default async function SpecificWeapon({ params }: WeaponPageProps) {
   const data = gunData;
-  const param = await params;
+  const {name} = await params;
 
-  const gun = data.find((item) => item.name === param.name);
-  // Error: Route "/weapons/assault-rifles/[name]" used `params.name`.
-  // `params` should be awaited before using its properties.
-  // Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+  const gun = data.find((item) => item.name.split(" ").join("-") === name);
 
   if (!gun) {
     notFound();
   }
 
-  const binaryName = asciiToBinary(gun.name);
+//   const binaryName = asciiToBinary(name);
+//   console.log(binaryName)
 
   return (
-    <div className="p-7">
+    <div className="p-7 flex flex-col bg-darkest h-screen">
       <div className="flex justify-center">
-        <h1 className="text-7xl text-stone-400 text-center">{gun.name}</h1>
+        <h1 className="text-7xl text-stone-400 text-center">{name}</h1>
         <span className="text-dark-sub pt-4 ml-4 text-sm">.AUGSHORT</span>
       </div>
-      <span>{binaryName}</span>
+      <span className="flex self-center mt-6 text-dark-sub text-xs">0101010</span>
     </div>
   );
 }

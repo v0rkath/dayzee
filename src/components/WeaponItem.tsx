@@ -12,8 +12,7 @@ export default function WeaponItem({ gun }: WeaponItemProps) {
 
   return (
     <Link
-      href={`/weapons/assault-rifles/${encodeURIComponent(urlName)}`}
-      prefetch={false}
+      href={`/weapons/assault-rifles/${encodeURIComponent(urlName.split(" ").join("-"))}`}
     >
       <div className="w-full flex border-t-2 border-r-2 border-dark-border max-w-6xl">
         <div className="flex flex-col bg-[#12171D] w-1/2 relative overflow-hidden">
