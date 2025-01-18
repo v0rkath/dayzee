@@ -1,6 +1,6 @@
 export type Gun = {
   name: string;
-  ammoType: string;
+  ammoType: string[];
   weight: number;
   roundsPerMin: string;
   type: string;
@@ -26,7 +26,7 @@ export type Gun = {
 export const gunData: Gun[] = [
   {
     name: "LAR",
-    ammoType: ".308 Winchester",
+    ammoType: [".308 Winchester"],
     weight: 4,
     roundsPerMin: "600 rounds/min",
     type: "Assault Rifle",
@@ -43,7 +43,7 @@ export const gunData: Gun[] = [
   },
   {
     name: "AUR A1",
-    ammoType: "5.56 x 45mm",
+    ammoType: ["5.56 x 45mm", "5.56 x 45mm Tracer"],
     weight: 3,
     roundsPerMin: "600 rounds/min",
     type: "Assault Rifle",
@@ -60,7 +60,7 @@ export const gunData: Gun[] = [
   },
   {
     name: "AUR AX",
-    ammoType: "5.56 x 45mm",
+    ammoType: ["5.56 x 45mm"],
     weight: 4,
     roundsPerMin: "600 rounds/min",
     type: "Assault Rifle",
@@ -77,7 +77,7 @@ export const gunData: Gun[] = [
   },
   {
     name: "KA-101",
-    ammoType: "5.56 x 45mm",
+    ammoType: ["5.56 x 45mm"],
     weight: 3,
     roundsPerMin: "600 rounds/min",
     type: "Assault Rifle",
@@ -87,7 +87,7 @@ export const gunData: Gun[] = [
   },
   {
     name: "KA-74",
-    ammoType: "5.45 x 39mm",
+    ammoType: ["5.45 x 39mm"],
     weight: 2,
     roundsPerMin: "600 rounds/min",
     type: "Assault Rifle",
@@ -97,7 +97,7 @@ export const gunData: Gun[] = [
   },
   {
     name: "KAS-74U",
-    ammoType: "5.45 x 39mm",
+    ammoType: ["5.45 x 39mm"],
     weight: 2,
     roundsPerMin: "600 rounds/min",
     type: "Assault Rifle",
@@ -107,7 +107,7 @@ export const gunData: Gun[] = [
   },
   {
     name: "KA-M",
-    ammoType: "7.62 x 39mm",
+    ammoType: ["7.62 x 39mm"],
     weight: 3,
     roundsPerMin: "600 rounds/min",
     type: "Assault Rifle",
@@ -117,7 +117,7 @@ export const gunData: Gun[] = [
   },
   {
     name: "LE-MAS",
-    ammoType: "5.56 x 45mm",
+    ammoType: ["5.56 x 45mm"],
     weight: 4,
     roundsPerMin: "900 rounds/min",
     type: "Assault Rifle",
@@ -127,7 +127,7 @@ export const gunData: Gun[] = [
   },
   {
     name: "M16-A2",
-    ammoType: "5.56 x 45mm",
+    ammoType: ["5.56 x 45mm"],
     weight: 4,
     roundsPerMin: "550 rounds/min",
     type: "Assault Rifle",
@@ -137,7 +137,7 @@ export const gunData: Gun[] = [
   },
   {
     name: "M4-A1",
-    ammoType: "5.56 x 45mm",
+    ammoType: ["5.56 x 45mm"],
     weight: 2,
     roundsPerMin: "900 rounds/min",
     type: "Assault Rifle",
@@ -147,7 +147,7 @@ export const gunData: Gun[] = [
   },
   {
     name: "SVAL",
-    ammoType: "9 x 39mm",
+    ammoType: ["9 x 39mm"],
     weight: 2,
     roundsPerMin: "900 rounds/min",
     type: "Assault Rifle",
@@ -157,7 +157,7 @@ export const gunData: Gun[] = [
   },
   {
     name: "Vikhr",
-    ammoType: "9 x 39mm",
+    ammoType: ["9 x 39mm"],
     weight: 2,
     roundsPerMin: "900 rounds/min",
     type: "Assault Rifle",

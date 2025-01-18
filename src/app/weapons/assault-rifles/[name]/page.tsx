@@ -1,36 +1,41 @@
-import asciiToBinary from "@/data/ascii-to-binary";
 import Image from "next/image";
-import { gunData } from "@/data/weapon-data";
-import { notFound } from "next/navigation";
+import asciiToBinary from "@/data/ascii-to-binary";
+import InfoBox from "@/components/InfoBox";
 import DamageBlock from "@/components/DamageBlock";
 
-type WeaponPageProps = {
-  params: {
-    name: string;
-  };
-};
+import { gunData } from "@/data/weapon-data";
+import { notFound } from "next/navigation";
+import { use } from "react";
 
-export default async function SpecificWeapon({ params }: WeaponPageProps) {
+type WeaponPageProps = Promise<{ name: string }>;
+
+export default function SpecificWeapon({
+  params,
+}: {
+  params: WeaponPageProps;
+}) {
   const data = gunData;
-  const { name } = await params;
+  const param = use(params);
 
-  const gun = data.find((item) => item.name.split(" ").join("-") === name);
+  const gun = data.find(
+    (item) => item.name.split(" ").join("-") === param.name
+  );
 
   if (!gun) {
     notFound();
   }
 
-  const binaryName = asciiToBinary(name);
+  const binaryName = asciiToBinary(param.name);
 
   return (
-    <div className="p-7 flex flex-col bg-darkest h-screen mx-auto">
+    <div className="p-7 flex flex-col bg-darkest h-screen mx-auto max-w-4xl">
       <div className="flex justify-center">
-        <h1 className="text-7xl text-stone-400 text-center">{name}</h1>
+        <h1 className="text-7xl text-stone-400">{param.name}</h1>
         <span className="text-dark-sub pt-4 ml-4 text-sm inline-block">
           .AUGSHORT
         </span>
       </div>
-      <span className="flex self-center mt-6 text-dark-sub text-xs">
+      <span className="flex self-center mt-6 text-dark-sub text-xs font-light">
         {binaryName}
       </span>
       <Image
@@ -40,21 +45,25 @@ export default async function SpecificWeapon({ params }: WeaponPageProps) {
         width="600"
         height="250"
       />
-      <div className="flex mt-28 gap-40 mx-auto">
-        {gun.damage && <DamageBlock damage={gun.damage}/>}
-        <div className="min-w-96 flex flex-col">
-          <div className="border-dark-sub border-t border-r border-l p-1 pl-2 text-dark-sub flex justify-between">
-            AMMO
-            <span className="text-xs my-auto font-light pr-2">
-              {asciiToBinary("Ammo")}
-            </span>
-          </div>
-          <div className="border-dark-sub border p-2 text-sm">
-            <p className="mb-2">5.56 x 45mm</p>
-            <p>5.56 x 45mm tracer</p>
-          </div>
-          <div className="max-w-16 bg-white h-2 mt-3"></div>
-        </div>
+      <div className="flex mt-28 justify-between">
+        {gun.damage && <DamageBlock damage={gun.damage} />}
+        <InfoBox
+          title="Ammo"
+          info={gun.ammoType}
+          decoration={true}
+          decWidth="10"
+        />
+      </div>
+      <div className="mt-16">
+        <InfoBox
+          title="Attachments"
+          info={gun.ammoType}
+          decoration={true}
+          decWidth="96"
+        />
+      </div>
+      <div className="mt-16 w-3/4">
+        <InfoBox title="Locations" info={gun.ammoType} />
       </div>
     </div>
   );

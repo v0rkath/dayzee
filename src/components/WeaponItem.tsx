@@ -12,7 +12,9 @@ export default function WeaponItem({ gun }: WeaponItemProps) {
 
   return (
     <Link
-      href={`/weapons/assault-rifles/${encodeURIComponent(urlName.split(" ").join("-"))}`}
+      href={`/weapons/assault-rifles/${encodeURIComponent(
+        urlName.split(" ").join("-")
+      )}`}
     >
       <div className="w-full flex border-t-2 border-r-2 border-dark-border max-w-6xl">
         <div className="flex flex-col bg-[#12171D] w-1/2 relative overflow-hidden">
@@ -21,7 +23,7 @@ export default function WeaponItem({ gun }: WeaponItemProps) {
             {gun.name}
           </h2>
           <div className="z-10 flex w-11/12 h-9 items-center justify-between mt-8 mb-2 px-6 text-xs bg-[#343F45] text-[#12171D] ">
-            <p>{gun.ammoType}</p>
+            <p>{gun.ammoType[0]}</p>
             <p>{gun.weight}kg</p>
             <p>{gun.roundsPerMin}</p>
             <p>{gun.type}</p>
