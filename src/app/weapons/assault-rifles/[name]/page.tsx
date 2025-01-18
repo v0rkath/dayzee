@@ -32,7 +32,7 @@ export default function SpecificWeapon({
       <div className="flex justify-center">
         <h1 className="text-7xl text-stone-400">{param.name}</h1>
         <span className="text-dark-sub pt-4 ml-4 text-sm inline-block">
-          .AUGSHORT
+          .{gun.className}
         </span>
       </div>
       <span className="flex self-center mt-6 text-dark-sub text-xs font-light">
@@ -62,8 +62,8 @@ export default function SpecificWeapon({
           decWidth="96"
         />
       </div>
-      <div className="mt-16 w-3/4">
-        <InfoBox title="Locations" info={gun.ammoType} />
+      <div className="mt-16">
+        <InfoBox title="Locations" info={gun.locations} />
       </div>
     </div>
   );
