@@ -16,7 +16,7 @@ export default function SideNavigationBar() {
   const curRoute = ROUTES.find((route) => pathname.startsWith(route.href));
 
   return (
-    <nav className="flex flex-col w-60 border-r border-gray-700 bg-dark-blue h-screen">
+    <nav className="flex flex-col w-60 border-r border-gray-700 bg-dark-blue h-screen sticky bottom-0 left-0 top-0">
       <ul className="mt-1 flex flex-col">
         {ROUTES.map((route) => (
           <li key={route.href}>

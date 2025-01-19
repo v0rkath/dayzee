@@ -1,11 +1,14 @@
+"use client"
 import Image from "next/image";
 import asciiToBinary from "@/data/ascii-to-binary";
 import InfoBox from "@/components/InfoBox";
 import DamageBlock from "@/components/DamageBlock";
+import dynamic from "next/dynamic";
 
 import { gunData } from "@/data/weapon-data";
 import { notFound } from "next/navigation";
-import { use } from "react";
+import { use, useMemo } from "react";
+import { LatLngExpression } from "leaflet";
 
 type WeaponPageProps = Promise<{ name: string }>;
 
@@ -14,6 +17,11 @@ export default function SpecificWeapon({
 }: {
   params: WeaponPageProps;
 }) {
+  const GameMap = useMemo(() => dynamic(
+    () => import("../../../../components/Map/GameMap"), { 
+    ssr: false,
+    loading: () => <p>Loading...</p>
+   }), []);
   const data = gunData;
   const param = use(params);
 
@@ -26,9 +34,10 @@ export default function SpecificWeapon({
   }
 
   const binaryName = asciiToBinary(param.name);
+  const posix: LatLngExpression = [4.79029, -75.69003];
 
   return (
-    <div className="p-7 flex flex-col bg-darkest h-screen mx-auto max-w-4xl">
+    <div className="p-7 flex flex-col bg-darkest mx-auto max-w-4xl">
       <div className="flex justify-center">
         <h1 className="text-7xl text-stone-400">{param.name}</h1>
         <span className="text-dark-sub pt-4 ml-4 text-sm inline-block">
@@ -63,7 +72,10 @@ export default function SpecificWeapon({
         />
       </div>
       <div className="mt-16">
-        <InfoBox title="Locations" info={gun.locations} />
+        <InfoBox title="Locations" info={gun.locations}  decoration={true} decWidth="44"/>
+      </div>
+      <div className="bg-white-700 mx-auto my-5 mt-16 mb-16">
+        <GameMap posix={posix} zoom={5} />
       </div>
     </div>
   );
