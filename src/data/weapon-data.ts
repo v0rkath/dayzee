@@ -1,3 +1,5 @@
+import { LatLngExpression } from "leaflet";
+
 export type Gun = {
   name: string;
   className: string;
@@ -16,6 +18,7 @@ export type Gun = {
     chestplate: number;
   };
   locations: string[];
+  markers?: LatLngExpression[];
 };
 
 // name: "",
@@ -43,7 +46,8 @@ export const gunData: Gun[] = [
       policeVest: 61.44,
       chestplate: 67.58,
     },
-    locations: ["Contaminated Areas"]
+    locations: ["Contaminated Areas"],
+    markers: [[50, -280], [1425, 1740]],
   },
   {
     name: "AUR A1",

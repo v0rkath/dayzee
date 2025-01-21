@@ -8,7 +8,7 @@ import dynamic from "next/dynamic";
 import { gunData } from "@/data/weapon-data";
 import { notFound } from "next/navigation";
 import { use, useMemo } from "react";
-import { LatLngExpression } from "leaflet";
+import { LatLngExpression, LatLngBoundsExpression } from "leaflet";
 
 type WeaponPageProps = Promise<{ name: string }>;
 
@@ -34,7 +34,8 @@ export default function SpecificWeapon({
   }
 
   const binaryName = asciiToBinary(param.name);
-  const posix: LatLngExpression = [4.79029, -75.69003];
+  const posix: LatLngExpression = [0.79029, 0.69003];
+  const bounds: LatLngBoundsExpression = [[-500, -500], [2000, 2000]]
 
   return (
     <div className="p-7 flex flex-col bg-darkest mx-auto max-w-4xl">
@@ -75,7 +76,8 @@ export default function SpecificWeapon({
         <InfoBox title="Locations" info={gun.locations}  decoration={true} decWidth="44"/>
       </div>
       <div className="bg-white-700 mx-auto my-5 mt-16 mb-16">
-        <GameMap posix={posix} zoom={5} />
+        {gun.markers && <GameMap posix={posix} bounds={bounds} locations={gun.markers} />}
+        
       </div>
     </div>
   );
