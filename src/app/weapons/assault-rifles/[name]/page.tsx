@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import asciiToBinary from "@/data/ascii-to-binary";
+import asciiToBinary from "@/utils/ascii-to-binary";
 import InfoBox from "@/components/InfoBox";
 import DamageBlock from "@/components/DamageBlock";
 import dynamic from "next/dynamic";
@@ -9,6 +9,7 @@ import { gunData } from "@/data/weapon-data";
 import { notFound } from "next/navigation";
 import { use, useMemo } from "react";
 import { LatLngExpression, LatLngBoundsExpression } from "leaflet";
+import { findCenter } from "@/utils/map-utils";
 
 type WeaponPageProps = Promise<{ name: string }>;
 
@@ -34,8 +35,11 @@ export default function SpecificWeapon({
   }
 
   const binaryName = asciiToBinary(param.name);
-  const posix: LatLngExpression = [0.79029, 0.69003];
-  const bounds: LatLngBoundsExpression = [[-500, -500], [2000, 2000]]
+  let posix: LatLngExpression = [0.79029, 0.69003];
+  if (gun.markers) { // temporary until dataset contains marker data
+    posix = findCenter(gun.markers);
+  }
+  const bounds: LatLngBoundsExpression = [[0, 0], [2500, 2500]]
 
   return (
     <div className="p-7 flex flex-col bg-darkest mx-auto max-w-4xl">
@@ -77,7 +81,6 @@ export default function SpecificWeapon({
       </div>
       <div className="bg-white-700 mx-auto my-5 mt-16 mb-16">
         {gun.markers && <GameMap posix={posix} bounds={bounds} locations={gun.markers} />}
-        
       </div>
     </div>
   );

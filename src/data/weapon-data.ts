@@ -47,7 +47,7 @@ export const gunData: Gun[] = [
       chestplate: 67.58,
     },
     locations: ["Contaminated Areas"],
-    markers: [[50, -280], [1425, 1740]],
+    markers: [[570, 230], [1925, 2240], [720, 1680]],
   },
   {
     name: "AUR A1",

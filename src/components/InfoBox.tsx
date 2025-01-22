@@ -1,4 +1,4 @@
-import asciiToBinary from "@/data/ascii-to-binary";
+import asciiToBinary from "@/utils/ascii-to-binary";
 
 type InfoBoxProps = {
   title: string;
