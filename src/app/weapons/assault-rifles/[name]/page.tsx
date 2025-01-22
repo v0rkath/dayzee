@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import asciiToBinary from "@/utils/ascii-to-binary";
 import InfoBox from "@/components/InfoBox";
@@ -9,7 +9,7 @@ import { gunData } from "@/data/weapon-data";
 import { notFound } from "next/navigation";
 import { use, useMemo } from "react";
 import { LatLngExpression, LatLngBoundsExpression } from "leaflet";
-import { findCenter } from "@/utils/map-utils";
+import { findCenter, generateZoomLevel } from "@/utils/map-utils";
 
 type WeaponPageProps = Promise<{ name: string }>;
 
@@ -18,11 +18,14 @@ export default function SpecificWeapon({
 }: {
   params: WeaponPageProps;
 }) {
-  const GameMap = useMemo(() => dynamic(
-    () => import("../../../../components/Map/GameMap"), { 
-    ssr: false,
-    loading: () => <p>Loading...</p>
-   }), []);
+  const GameMap = useMemo(
+    () =>
+      dynamic(() => import("../../../../components/Map/GameMap"), {
+        ssr: false,
+        loading: () => <p>Loading...</p>,
+      }),
+    []
+  );
   const data = gunData;
   const param = use(params);
 
@@ -36,10 +39,16 @@ export default function SpecificWeapon({
 
   const binaryName = asciiToBinary(param.name);
   let posix: LatLngExpression = [0.79029, 0.69003];
-  if (gun.markers) { // temporary until dataset contains marker data
+  let zoom = 0;
+  if (gun.markers) {
+    // temporary until dataset contains marker data
     posix = findCenter(gun.markers);
+    zoom = generateZoomLevel(gun.markers);
   }
-  const bounds: LatLngBoundsExpression = [[0, 0], [2500, 2500]]
+  const bounds: LatLngBoundsExpression = [
+    [0, 0],
+    [2500, 2500],
+  ];
 
   return (
     <div className="p-7 flex flex-col bg-darkest mx-auto max-w-4xl">
@@ -77,10 +86,22 @@ export default function SpecificWeapon({
         />
       </div>
       <div className="mt-16">
-        <InfoBox title="Locations" info={gun.locations}  decoration={true} decWidth="44"/>
+        <InfoBox
+          title="Locations"
+          info={gun.locations}
+          decoration={true}
+          decWidth="44"
+        />
       </div>
       <div className="bg-white-700 mx-auto my-5 mt-16 mb-16">
-        {gun.markers && <GameMap posix={posix} bounds={bounds} locations={gun.markers} />}
+        {gun.markers && (
+          <GameMap
+            posix={posix}
+            zoom={zoom}
+            bounds={bounds}
+            locations={gun.markers}
+          />
+        )}
       </div>
     </div>
   );
