@@ -19,6 +19,13 @@ export type Gun = {
   };
   locations: string[];
   markers?: LatLngExpression[];
+  attachments?: {
+    buttstocks?: string[],
+    wraps?: string[],
+    optics?: string[],
+    suppressors?: string[],
+    magazines?: string[]
+  }
 };
 
 // name: "",
@@ -45,12 +52,16 @@ export const gunData: Gun[] = [
       ballisticVest: 61.44,
       policeVest: 61.44,
       chestplate: 67.58,
-    }, // [1925, 2240
+    },
     locations: ["Contaminated Areas"],
-    markers: [
-      [570, 230],
-      [620, 500],
-    ],
+    markers: [[570, 230], [1925, 2240], [720, 1680]],
+    attachments: {
+        buttstocks: ["LAR Lightweight Buttstock", "LAR Polymer Buttstock"],
+        wraps: ["Ghillie Rifle Wrap"],
+        optics: ["ATOG 4x32 Scope", "ATOG 6x48 Scope", "Baraka Sights", "Combat Sights", "NV-PVS4 Scope", "RVN Sights"],
+        suppressors: ["Plastic Bottle Suppressor"],
+        magazines: ["20rd LAR Mag"]
+    }
   },
   {
     name: "AUR A1",
@@ -69,7 +80,7 @@ export const gunData: Gun[] = [
       policeVest: 45.68,
       chestplate: 50.24,
     },
-    locations: ["Helicopter Crash Sites", "Military Convoys"],
+    locations: ["Helicopter Crash Sites", "Military Convoys"]
   },
   {
     name: "AUR AX",
@@ -88,7 +99,7 @@ export const gunData: Gun[] = [
       policeVest: 53.73,
       chestplate: 59.11,
     },
-    locations: ["Contaminated Areas"],
+    locations: ["Contaminated Areas"]
   },
   {
     name: "KA-101",
@@ -101,13 +112,13 @@ export const gunData: Gun[] = [
     size: [8, 3],
     image: "/images/KA-101.png",
     damage: {
-      normal: 96.72,
-      plateCarrier: 29.02,
-      ballisticVest: 48.36,
-      policeVest: 48.36,
-      chestplate: 53.2,
-    },
-    locations: ["Helicopter Crash Sites", "Military Convoys"],
+        normal: 96.72,
+        plateCarrier: 29.02,
+        ballisticVest: 48.36,
+        policeVest: 48.36,
+        chestplate: 53.20,
+      },
+      locations: ["Helicopter Crash Sites", "Military Convoys"]
   },
   {
     name: "KA-74",
@@ -120,13 +131,13 @@ export const gunData: Gun[] = [
     size: [8, 3],
     image: "/images/KA-74.png",
     damage: {
-      normal: 80.5,
-      plateCarrier: 24.15,
-      ballisticVest: 40.25,
-      policeVest: 40.25,
-      chestplate: 44.28,
-    },
-    locations: ["Military (Tier 3)", "Military (Tier 4)"],
+        normal: 80.50,
+        plateCarrier: 24.15,
+        ballisticVest: 40.25,
+        policeVest: 40.25,
+        chestplate: 44.28,
+      },
+      locations: ["Military (Tier 3)", "Military (Tier 4)"]
   },
   {
     name: "KAS-74U",
@@ -139,13 +150,13 @@ export const gunData: Gun[] = [
     size: [6, 3],
     image: "/images/KAS-74U.png",
     damage: {
-      normal: 65.55,
-      plateCarrier: 19.67,
-      ballisticVest: 32.78,
-      policeVest: 32.78,
-      chestplate: 36.05,
-    },
-    locations: ["Military (Tier 3)"],
+        normal: 65.55,
+        plateCarrier: 19.67,
+        ballisticVest: 32.78,
+        policeVest: 32.78,
+        chestplate: 36.05,
+      },
+      locations: ["Military (Tier 3)"]
   },
   {
     name: "KA-M",
@@ -158,13 +169,13 @@ export const gunData: Gun[] = [
     size: [8, 3],
     image: "/images/KA-M.png",
     damage: {
-      normal: 90.13,
-      plateCarrier: 27.04,
-      ballisticVest: 45.06,
-      policeVest: 45.06,
-      chestplate: 49.57,
-    },
-    locations: ["Military (Tier 4)"],
+        normal: 90.13,
+        plateCarrier: 27.04,
+        ballisticVest: 45.06,
+        policeVest: 45.06,
+        chestplate: 49.57,
+      },
+      locations: ["Military (Tier 4)"]
   },
   {
     name: "LE-MAS",
@@ -177,13 +188,13 @@ export const gunData: Gun[] = [
     size: [6, 3],
     image: "/images/LE-MAS.png",
     damage: {
-      normal: 107.47,
-      plateCarrier: 32.24,
-      ballisticVest: 53.74,
-      policeVest: 53.74,
-      chestplate: 59.11,
-    },
-    locations: ["Helicopter Crash Sites", "Military Convoys"],
+        normal: 107.47,
+        plateCarrier: 32.24,
+        ballisticVest: 53.74,
+        policeVest: 53.74,
+        chestplate: 59.11,
+      },
+      locations: ["Helicopter Crash Sites", "Military Convoys"]
   },
   {
     name: "M16-A2",
@@ -196,13 +207,13 @@ export const gunData: Gun[] = [
     size: [9, 3],
     image: "/images/M16-A2.png",
     damage: {
-      normal: 107.47,
-      plateCarrier: 32.24,
-      ballisticVest: 53.74,
-      policeVest: 53.74,
-      chestplate: 59.11,
-    },
-    locations: ["Military Crash Sites", "Military Convoys"],
+        normal: 107.47,
+        plateCarrier: 32.24,
+        ballisticVest: 53.74,
+        policeVest: 53.74,
+        chestplate: 59.11,
+      },
+      locations: ["Military Crash Sites", "Military Convoys"]
   },
   {
     name: "M4-A1",
@@ -215,13 +226,13 @@ export const gunData: Gun[] = [
     size: [8, 3],
     image: "/images/M4-A1.png",
     damage: {
-      normal: 96.72,
-      plateCarrier: 29.02,
-      ballisticVest: 48.36,
-      policeVest: 48.36,
-      chestplate: 53.2,
-    },
-    locations: ["Contaminated Areas"],
+        normal: 96.72,
+        plateCarrier: 29.02,
+        ballisticVest: 48.36,
+        policeVest: 48.36,
+        chestplate: 53.20,
+      },
+      locations : ["Contaminated Areas"]
   },
   {
     name: "SVAL",
@@ -234,13 +245,13 @@ export const gunData: Gun[] = [
     size: [8, 3],
     image: "/images/SVAL.png",
     damage: {
-      normal: 75.0,
-      plateCarrier: 22.5,
-      ballisticVest: 37.5,
-      policeVest: 37.5,
-      chestplate: 41.25,
-    },
-    locations: ["Military (Tier 4)"],
+        normal: 75.00,
+        plateCarrier: 22.50,
+        ballisticVest: 37.50,
+        policeVest: 37.50,
+        chestplate: 41.25,
+      },
+      locations: ["Military (Tier 4)"]
   },
   {
     name: "Vikhr",
@@ -253,12 +264,12 @@ export const gunData: Gun[] = [
     size: [6, 3],
     image: "/images/Vikhr.png",
     damage: {
-      normal: 75.0,
-      plateCarrier: 22.5,
-      ballisticVest: 37.5,
-      policeVest: 37.5,
-      chestplate: 41.25,
-    },
-    locations: ["Military (Tier 3)", "Military (Tier 4)"],
+        normal: 75.00,
+        plateCarrier: 22.50,
+        ballisticVest: 37.50,
+        policeVest: 37.50,
+        chestplate: 41.25,
+      },
+      locations: ["Military (Tier 3)", "Military (Tier 4)"]
   },
 ];
